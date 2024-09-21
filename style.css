@@ -1,0 +1,58 @@
+@charset "utf-8";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.snow-container {
+  background: url(images/yakei.jpg);
+  width: 100%;
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+}
+
+.snow-container::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: .4;
+}
+
+.snow {
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  background: #fff;
+  border-radius: 50%;
+  position: absolute;
+  animation: snowFall 10s linear;
+  z-index: 2;
+}
+
+@keyframes snowFall {
+  0% {
+    opacity: 0;
+    top: 0;
+    transform: translateX(5px);
+  }
+  10% {
+    opacity: 1;
+    transform: translateX(-5px);
+  }
+  20% {
+    transform: translateX(5px);
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    top: 100vh;
+  }
+}
